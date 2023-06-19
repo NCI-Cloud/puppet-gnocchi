@@ -38,8 +38,8 @@ class gnocchi::storage::s3(
   $s3_region_name       = $::os_service_default,
   $s3_access_key_id     = undef,
   $s3_secret_access_key = undef,
-  $s3_bucket_prefix     = $::os_service_default,
-  $manage_boto3         = true,
+  $s3_bucket_prefix     = $facts['os_service_default'],
+  Boolean $manage_boto3 = true,
   $package_ensure       = 'present',
 ) {
 

@@ -54,13 +54,13 @@
 #
 class gnocchi::storage::ceph(
   $ceph_username,
-  $ceph_keyring   = $::os_service_default,
-  $ceph_secret    = $::os_service_default,
-  $ceph_pool      = 'gnocchi',
-  $ceph_timeout   = $::os_service_default,
-  $ceph_conffile  = '/etc/ceph/ceph.conf',
-  $manage_rados   = true,
-  $package_ensure = 'present',
+  $ceph_keyring         = $facts['os_service_default'],
+  $ceph_secret          = $facts['os_service_default'],
+  $ceph_pool            = 'gnocchi',
+  $ceph_timeout         = $facts['os_service_default'],
+  $ceph_conffile        = '/etc/ceph/ceph.conf',
+  Boolean $manage_rados = true,
+  $package_ensure       = 'present',
 ) inherits gnocchi::params {
 
   include gnocchi::deps
