@@ -27,11 +27,11 @@
 #
 class gnocchi::statsd (
   $resource_id,
-  $flush_delay         = $::os_service_default,
-  $archive_policy_name = $::os_service_default,
-  $manage_service      = true,
-  $enabled             = true,
-  $package_ensure      = 'present',
+  $flush_delay            = $facts['os_service_default'],
+  $archive_policy_name    = $facts['os_service_default'],
+  Boolean $manage_service = true,
+  Boolean $enabled        = true,
+  $package_ensure         = 'present',
 ) inherits gnocchi::params {
 
   include gnocchi::deps

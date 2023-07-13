@@ -42,9 +42,6 @@
 #    Defaults to false.
 #
 class gnocchi::policy (
-  $enforce_scope        = $::os_service_default,
-  $enforce_new_defaults = $::os_service_default,
-  $policies             = {},
   $policy_path          = '/etc/gnocchi/policy.yaml',
   $policy_dirs          = $::os_service_default,
   $purge_config         = false,
@@ -52,8 +49,6 @@ class gnocchi::policy (
 
   include gnocchi::deps
   include gnocchi::params
-
-  validate_legacy(Hash, 'validate_hash', $policies)
 
   if ! $purge_config {
     # TODO(tkajinam): Remove this once version with policy-in-code implementation

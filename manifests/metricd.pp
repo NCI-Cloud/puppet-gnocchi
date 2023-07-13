@@ -47,14 +47,14 @@
 #   Defaults to $::os_service_default
 #
 class gnocchi::metricd (
-  $manage_service          = true,
-  $enabled                 = true,
-  $workers                 = $::os_workers,
-  $metric_processing_delay = $::os_service_default,
-  $greedy                  = $::os_service_default,
-  $metric_reporting_delay  = $::os_service_default,
-  $metric_cleanup_delay    = $::os_service_default,
-  $processing_replicas     = $::os_service_default,
+  Boolean $manage_service  = true,
+  Boolean $enabled         = true,
+  $workers                 = $facts['os_workers'],
+  $metric_processing_delay = $facts['os_service_default'],
+  $greedy                  = $facts['os_service_default'],
+  $metric_reporting_delay  = $facts['os_service_default'],
+  $metric_cleanup_delay    = $facts['os_service_default'],
+  $processing_replicas     = $facts['os_service_default'],
   $package_ensure          = 'present',
   # DEPRECATED PARAMETERS
   $cleanup_delay           = undef,
