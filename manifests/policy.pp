@@ -42,6 +42,9 @@
 #    Defaults to false.
 #
 class gnocchi::policy (
+  $enforce_scope        = $facts['os_service_default'],
+  $enforce_new_defaults = $facts['os_service_default'],
+  Hash $policies        = {},
   $policy_path          = '/etc/gnocchi/policy.yaml',
   $policy_dirs          = $::os_service_default,
   $purge_config         = false,
